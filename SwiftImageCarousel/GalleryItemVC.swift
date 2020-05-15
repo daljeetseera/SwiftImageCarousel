@@ -13,7 +13,8 @@ class GalleryItemVC: UIViewController {
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var contentImageView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView! {
-        didSet {
+        didSet
+        {
             scrollView.contentSize = contentImageView.frame.size
             scrollView.delegate = self
         }
@@ -30,7 +31,7 @@ class GalleryItemVC: UIViewController {
     }
 
     @IBAction func tapBigImage(_ sender: UITapGestureRecognizer) {
-        performSegue(withIdentifier: "unwindToSwiftImageCarouselVC", sender: self)
+      //  performSegue(withIdentifier: "unwindToSwiftImageCarouselVC", sender: self)
     }
 
     // MARK: - setupUI Function
@@ -42,6 +43,7 @@ class GalleryItemVC: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         closeButton.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
         if showCloseButtonInModalGallery {
             UIView.animate(withDuration: 1.5,

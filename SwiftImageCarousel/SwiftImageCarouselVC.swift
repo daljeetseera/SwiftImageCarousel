@@ -64,7 +64,7 @@ public class SwiftImageCarouselVC: UIPageViewController {
     public var noImage: UIImage? = nil
 
     /// Enables resetting the UIViewContentMode of SwiftImageCarouselItemVC UIViewContentMode. The default is .scaleAspectFit.
-    public var contentMode: UIViewContentMode = .scaleAspectFit
+    public var contentMode: UIView.ContentMode = .scaleAspectFit
 
     // MARK: - Timer properties
     /// The timer that is used to move the next page item.
@@ -114,6 +114,7 @@ public class SwiftImageCarouselVC: UIPageViewController {
     /// - Parameter index: The index for the VC from the model that will be loaded
     func loadPageViewController(atIndex index: Int = 0) {
         if let firstController = getItemController(index) {
+            firstController.view.backgroundColor = .clear
             let startingViewControllers = [firstController]
             setViewControllers(startingViewControllers, direction: .forward, animated: true, completion: nil)
         }
@@ -144,6 +145,7 @@ public class SwiftImageCarouselVC: UIPageViewController {
             pageItemController.contentMode = contentMode
             pageItemController.noImage = noImage
             pageItemController.showCloseButtonInModalGallery = showCloseButtonInModalGallery
+            pageItemController.view.backgroundColor = .clear
             return pageItemController
         }
         return nil
@@ -169,11 +171,11 @@ public class SwiftImageCarouselVC: UIPageViewController {
 
     // MARK: - Setup page control
     func setupPageControl() {
-        view.backgroundColor = .white
+        view.backgroundColor = .clear
         // Default appearance
         let appearance = UIPageControl.appearance()
-        appearance.pageIndicatorTintColor = .orange
-        appearance.currentPageIndicatorTintColor = .gray
+        appearance.pageIndicatorTintColor = .gray
+        appearance.currentPageIndicatorTintColor = .orange
         appearance.backgroundColor = .clear
 
         // Custom appearance setup with delegation from outside this framework.
@@ -196,12 +198,15 @@ public class SwiftImageCarouselVC: UIPageViewController {
         super.viewDidLayoutSubviews()
         if escapeFirstPageControlDefaultFrame {
             for view in self.view.subviews {
+                view.backgroundColor = .clear
                 if view is UIScrollView {
                     // Sets the image container frame to extend over the UIPageControl frame but not cover it (it goes underneath).
                     // To see it properly working contentMode should be .scaleToFill
                     // 37 is generally the default height of a UIPageControl
                     if pageControlFrameHeight != 0 {
                         view.frame = CGRect(x: view.frame.minX , y: view.frame.minY, width: view.frame.width, height: view.frame.height + pageControlFrameHeight)
+                          view.backgroundColor = .clear
+                        
                     }
                 } else if view is UIPageControl {
                     pageControlFrameHeight = view.frame.height
@@ -213,6 +218,8 @@ public class SwiftImageCarouselVC: UIPageViewController {
 
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        view.backgroundColor = .clear
         if isTimerOn {
             startTimer()
         }
@@ -223,6 +230,12 @@ public class SwiftImageCarouselVC: UIPageViewController {
         timer.invalidate()
     }
     
+    public override func viewDidDisappear(_ animated: Bool) {
+        for v in self.view.subviews
+        {
+            v.backgroundColor = .clear
+        }
+    }
     override public var prefersStatusBarHidden : Bool { return true }
 }
 

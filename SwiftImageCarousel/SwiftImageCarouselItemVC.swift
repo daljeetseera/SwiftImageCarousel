@@ -30,7 +30,7 @@ public class SwiftImageCarouselItemVC: UIViewController {
     var showCloseButtonInModalGallery = false
 
     /// Enables resetting the UIViewContentMode of SwiftImageCarouselItemVC UIViewContentMode. The default is .scaleAspectFit
-    var contentMode: UIViewContentMode = .scaleAspectFit
+    var contentMode: UIView.ContentMode = .scaleAspectFit
 
     /// The array with the image URLs, passed to the GalleryVC.
     public var contentImageURLs: [String]!
@@ -39,7 +39,7 @@ public class SwiftImageCarouselItemVC: UIViewController {
     @IBAction func tapView(_ sender: UITapGestureRecognizer) {
         swiftImageCarouselVCDelegate?.didTapSwiftImageCarouselItemVC?(swiftImageCarouselItemController: self)
         if showModalGalleryOnTap {
-            self.performSegue(withIdentifier: "showGalleryVC", sender: nil)            
+            self.performSegue(withIdentifier: "showGalleryVC", sender: nil)
         }
     }
 
