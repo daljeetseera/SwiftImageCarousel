@@ -26,6 +26,9 @@ class GalleryItemVC: UIViewController {
     var showCloseButtonInModalGallery = false
     
     var noImage: UIImage? = nil
+    
+    var crossBtnColor: UIColor? = .white
+    
     @IBAction func tapCloseButton(_ sender: UIButton) {
         performSegue(withIdentifier: "unwindToSwiftImageCarouselVC", sender: self)
     }
@@ -39,6 +42,7 @@ class GalleryItemVC: UIViewController {
         contentImageView.image = noImage
         _ = contentImageView.downloadImageAsync(contentsOf: productImageURL, saveToCache: imageCache)
         scrollView?.contentSize = contentImageView.frame.size
+        closeButton.setTitleColor(crossBtnColor, for: .normal)
     }
 
     override func viewWillAppear(_ animated: Bool) {

@@ -14,6 +14,9 @@ class GalleryVC: UIPageViewController {
     var pageIndicatorIndex = 0
     var contentImageURLs = [String]()
     
+    /// Changes color of Cross button in modal gallery.
+    var crossBtnColor: UIColor? = .white
+    
     var noImage: UIImage? = nil
     /// Shows/hides the close button in the modal gallery. Default value is false.
     var showCloseButtonInModalGallery = false

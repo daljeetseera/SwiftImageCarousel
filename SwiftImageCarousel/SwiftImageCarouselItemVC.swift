@@ -14,6 +14,10 @@ public class SwiftImageCarouselItemVC: UIViewController {
     @IBOutlet weak var contentImageView: UIImageView!
     
     // MARK: - Variables
+    
+    /// Changes color of Cross button in modal gallery.
+    var crossBtnColor: UIColor? = .white
+    
     /// The image shown when an image to be downloaded does not do that successfully
     var noImage: UIImage? = nil
 

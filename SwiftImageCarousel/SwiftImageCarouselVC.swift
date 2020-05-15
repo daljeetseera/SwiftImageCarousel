@@ -59,7 +59,10 @@ public class SwiftImageCarouselVC: UIPageViewController {
 
     /// Enables/disables the showing of the modal gallery.
     public var showModalGalleryOnTap = true
-
+    
+    /// Changes color of Cross button in modal gallery.
+    public var crossBtnColor: UIColor? = .white
+    
     /// The image shown when an image to be downloaded does not do that successfully
     public var noImage: UIImage? = nil
 
