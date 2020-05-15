@@ -145,6 +145,7 @@ public class SwiftImageCarouselVC: UIPageViewController {
             pageItemController.contentImageURLs = contentImageURLs
             pageItemController.swiftImageCarouselVCDelegate = swiftImageCarouselVCDelegate
             pageItemController.showModalGalleryOnTap = showModalGalleryOnTap
+            pageItemController.crossBtnColor = crossBtnColor
             pageItemController.contentMode = contentMode
             pageItemController.noImage = noImage
             pageItemController.showCloseButtonInModalGallery = showCloseButtonInModalGallery

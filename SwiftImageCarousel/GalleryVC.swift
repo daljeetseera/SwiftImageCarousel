@@ -44,6 +44,7 @@ class GalleryVC: UIPageViewController {
             galleryItemVC.itemIndex = itemIndex
             galleryItemVC.productImageURL = contentImageURLs[galleryItemVC.itemIndex]
             galleryItemVC.noImage = noImage
+            galleryItemVC.crossBtnColor = crossBtnColor
             galleryItemVC.showCloseButtonInModalGallery = showCloseButtonInModalGallery
             
             return galleryItemVC

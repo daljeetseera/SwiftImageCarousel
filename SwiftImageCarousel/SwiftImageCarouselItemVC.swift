@@ -61,6 +61,7 @@ public class SwiftImageCarouselItemVC: UIViewController {
                 scrollableGalleryVC.pageIndicatorIndex = itemIndex
                 scrollableGalleryVC.contentImageURLs = contentImageURLs
                 scrollableGalleryVC.noImage = noImage
+                scrollableGalleryVC.crossBtnColor = crossBtnColor
                 scrollableGalleryVC.showCloseButtonInModalGallery = showCloseButtonInModalGallery
             }
         }
